@@ -16,7 +16,7 @@ module.exports = {
                 if (err) {
                     res.status(400);
                     return res.send({reason: err.toString()});
-                };
+                }
 
                 res.send(user);
             })
@@ -27,10 +27,11 @@ module.exports = {
             var updatedUserData = req.body;
             if (updatedUserData.password && updatedUserData.password.length > 0) {
                 updatedUserData.salt = encryption.generateSalt();
-                updatedUserData.hashPass = encryption.generateHashedPassword(newUserData.salt, newUserData.password);
+                updatedUserData.hashPass = encryption.generateHashedPassword(updatedUserData.salt, updatedUserData.password);
             }
 
             User.update({_id: req.body._id}, updatedUserData, function() {
+                res.send({success: true});
                 res.end();
             })
         }
@@ -47,4 +48,4 @@ module.exports = {
             res.send(collection);
         })
     }
-}
+};

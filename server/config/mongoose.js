@@ -1,6 +1,7 @@
 var mongoose = require('mongoose'),
     user = require('../models/User'),
-    movie = require('../models/Movie');
+    movie = require('../models/Movie'),
+    review = require('../models/Review');
 
 module.exports = function(config) {
     mongoose.connect(config.db);
@@ -21,4 +22,5 @@ module.exports = function(config) {
 
     user.seedInitialUsers();
     movie.seedInitialMovies();
+    review.seedInitialReviews();
 };

@@ -8,6 +8,12 @@ module.exports = function(app) {
 
     app.get('/api/movies', controllers.movies.getAllMovies);
     app.get('/api/movies/:id', controllers.movies.getMovieById);
+    app.get('/api/movies/:id/reviews', controllers.reviews.getMovieReviews);
+
+    app.get('/api/reviews', controllers.reviews.getAllReviews);
+    app.get('/api/reviews/:id', controllers.reviews.getReviewById);
+    app.post('/api/reviews', auth.isAuthenticated, controllers.reviews.createReview);
+    app.put('/api/reviews', auth.isAuthenticated, controllers.reviews.updateReview);
 
     app.get('/partials/:partialArea/:partialName', function(req, res) {
         res.render('../../public/app/' + req.params.partialArea + '/' + req.params.partialName)

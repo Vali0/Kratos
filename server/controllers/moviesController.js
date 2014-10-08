@@ -1,8 +1,8 @@
-var Course = require('mongoose').model('Course');
+var Movie = require('mongoose').model('Movie');
 
 module.exports = {
-    getAllCourses: function(req, res, next) {
-        Course.find({}).exec(function(err, collection) {
+    getAllMovies: function(req, res, next) {
+        Movie.find({}).exec(function(err, collection) {
             if (err) {
                 console.log('Courses could not be loaded: ' + err);
             }
@@ -10,8 +10,8 @@ module.exports = {
             res.send(collection);
         })
     },
-    getCourseById: function(req, res, next) {
-        Course.findOne({_id: req.params.id}).exec(function(err, course) {
+    getMovieById: function(req, res, next) {
+        Movie.findOne({_id: req.params.id}).exec(function(err, course) {
             if (err) {
                 console.log('Course could not be loaded: ' + err);
             }

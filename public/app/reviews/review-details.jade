@@ -1,8 +1,46 @@
 .container
     .row
-        .col-md-6.well
-            h2 {{ review.title }}
-            p {{ review.content }}
+        .col-md-6
+            .row.well
+                h2 {{ review.title }}
+                p {{ review.content }}
+                hr
+                strong Author:
+                span  {{ review.author.username}}
+                strong  Date:
+                span {{review.postDate | date: MMM:d:yyyy}}
+                strong  Rating:
+                span {{review.rating}}
+            .row.well
+                h4  Comments:
+                .panel.panel-primary
+                    .panel-heading
+                        h3.panel-title Title of the comment
+                    .panel-body Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nibh neque, ullamcorper ullamcorper lorem sed, eleifend cursus libero. Nulla posuere ex non lorem fermentum, at cursus erat varius. Sed congue et ante vel elementum. Duis varius faucibus augue, nec sodales velit vehicula ut.
+                    .panel-footer
+                        strong  Author:
+                        span  username
+                        strong  Date:
+                        span 11/11/2014
+                .panel.panel-primary
+                    .panel-heading
+                        h3.panel-title Title of the comment
+                    .panel-body Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nibh neque, ullamcorper ullamcorper lorem sed, eleifend cursus libero. Nulla posuere ex non lorem fermentum, at cursus erat varius. Sed congue et ante vel elementum. Duis varius faucibus augue, nec sodales velit vehicula ut.
+                    .panel-footer
+                        strong  Author:
+                        span  username
+                        strong  Date:
+                        span 11/11/2014
+                .panel.panel-primary
+                    .panel-heading
+                        h3.panel-title Title of the comment
+                    .panel-body Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nibh neque, ullamcorper ullamcorper lorem sed, eleifend cursus libero. Nulla posuere ex non lorem fermentum, at cursus erat varius. Sed congue et ante vel elementum. Duis varius faucibus augue, nec sodales velit vehicula ut.
+                    .panel-footer
+                        strong  Author:
+                        span  username
+                        strong  Date:
+                        span 11/11/2014
+                button.btn Add Comment
         .col-md-5.well.pull-right
             h2 {{review.movie.title}}
             p {{review.movie.description}}

@@ -1,5 +1,5 @@
 app.controller('MainCtrl', function($scope, moviesData, reviewsData, notifier) {
-    moviesData.getMovies().then(function(data) {
+    moviesData.getAllMovies().then(function(data) {
         if (data) {
             $scope.movies = data;
         }

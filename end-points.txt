@@ -1,0 +1,17 @@
+GET /api/users (admin)             () -> [User]
+POST /api/users                    (firstName, lastName, username, password) -> User
+PUT /api/users (authenticated)     (firstName, lastName, password) -> {success: true}
+
+GET /api/movies                    () -> [Movie]
+GET /api/movies/:id                () -> Movie
+
+GET /api/movies/:id/reviews        () -> [Review]
+GET /api/reviews                   () -> [Review]
+GET /api/reviews/:id               () -> Review
+POST /api/reviews (authenticated)  (title, content, postDate, rating, author(User), movie(Movie)) -> Review
+PUT /api/reviews (authenticated)   (title, content, postDate, rating, author(User), movie(Movie)) -> {success: true}
+
+POST /login                         -> {success: false} / {success: true, user: User}
+POST /logout                        -> null
+
+GET /partials/:partialArea/:partialName -> html rendered from the jade template located in /public/app/:partialArea/:partialName.jade

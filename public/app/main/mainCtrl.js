@@ -8,7 +8,7 @@ app.controller('MainCtrl', function($scope, moviesData, reviewsData, notifier) {
         }
     });
 
-    reviewsData.getReviews().then(function(data) {
+    reviewsData.getLatest().then(function(data) {
         if (data) {
             $scope.reviews = data;
         }

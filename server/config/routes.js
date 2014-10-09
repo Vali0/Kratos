@@ -11,6 +11,7 @@ module.exports = function(app) {
     app.get('/api/movies/:id/reviews', controllers.reviews.getMovieReviews);
 
     app.get('/api/reviews', controllers.reviews.getAllReviews);
+    app.get('/api/reviews/latest', controllers.reviews.getLatestReviews);
     app.get('/api/reviews/:id', controllers.reviews.getReviewById);
     app.post('/api/reviews', auth.isAuthenticated, controllers.reviews.createReview);
     app.put('/api/reviews', auth.isAuthenticated, controllers.reviews.updateReview);

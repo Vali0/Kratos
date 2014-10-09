@@ -40,13 +40,23 @@ module.exports = {
             res.send(collection);
         })
     },
+    getLatestReviews: function (req, res) {
+        Review.find({})
+            .sort({ postDate: 'desc' })
+            .limit(10)
+            .exec(function (err, collection) {
+                if (err) {
+                    console.log(err)
+                }
+
+                res.send(collection);
+            });
+    },
     getMovieReviews: function(req, res) {
         Review.find({movie: req.params.id}).exec(function(err, collection) {
             if (err) {
                 console.log('Reviews could not be loaded: ' + err);
             }
-
-            console.log(req.params.id);
 
             res.send(collection);
         })

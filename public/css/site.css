@@ -16,13 +16,5 @@ footer {
 }
 footer p {
   border-top: 1px solid #808080;
-  margin-top: 10px;
-}
-
-a.ng-scope{
-    margin: 0 5px 5px 0;
-}
-
-a.ng-scope:hover{
-    text-decoration: none;
+  padding-top: 10px;
 }

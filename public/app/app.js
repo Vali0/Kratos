@@ -30,6 +30,10 @@ app.config(function($routeProvider, $locationProvider) {
             templateUrl: '/partials/movies/movie-details',
             controller: 'MovieDetailsCtrl'
         })
+        .when('/reviews/:id', {
+            templateUrl: '/partials/reviews/review-details',
+            controller: 'ReviewDetailsCtrl'
+        })
         .when('/signup', {
             templateUrl: '/partials/account/signup',
             controller: 'SignUpCtrl'

@@ -1,0 +1,9 @@
+.container
+    .row
+        .col-md-6.well
+            h2 {{ review.title }}
+            p {{ review.content }}
+        .col-md-5.well.pull-right
+            h2 {{review.movie.title}}
+            p {{review.movie.description}}
+            img(ng-src="{{review.movie.coverPictureUrl}}")

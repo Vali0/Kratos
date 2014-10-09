@@ -16,6 +16,17 @@ app.factory('reviewsData', ['$http', '$q', 'baseServiceUrl',
 
                 return deferred.promise;
             },
+            getReview: function (id) {
+                var deferred = $q.defer();
+                    $http.get(reviewApi + '/' + id)
+                        .success(function(data) {
+                            deferred.resolve(data);
+                        }, function(response) {
+                            deferred.reject(response);
+                        });
+
+                    return deferred.promise;
+            },
             getLatest: function () {
                 var deferred = $q.defer();
                 $http.get(reviewApi + '/latest')

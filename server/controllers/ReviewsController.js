@@ -62,7 +62,9 @@ module.exports = {
         })
     },
     getReviewById: function(req, res, next) {
-        Review.findOne({_id: req.params.id}).exec(function(err, review) {
+        Review.findOne({_id: req.params.id})
+            .populate('movie')
+            .exec(function(err, review) {
             if (err) {
                 console.log('Review could not be loaded: ' + err);
             }

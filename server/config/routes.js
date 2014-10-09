@@ -10,7 +10,7 @@ module.exports = function(app) {
     app.get('/api/movies', controllers.movies.getAllMovies);
     app.get('/api/movies/:id', controllers.movies.getMovieById);
     app.get('/api/movies/:id/reviews', controllers.reviews.getMovieReviews);
-    app.post('/api/movies', controllers.reviews.createMovie);
+    app.post('/api/movies', controllers.movies.createMovie);
     app.put('/api/movies', auth.isInRole('admin'), controllers.movies.updateMovie);
     app.delete('/api/movies', auth.isInRole('admin'), controllers.movies.removeMovie);
 

@@ -19,6 +19,10 @@ footer p {
   margin-top: 10px;
 }
 
-.label.label-info {
+a.ng-scope{
     margin: 0 5px 5px 0;
+}
+
+a.ng-scope:hover{
+    text-decoration: none;
 }

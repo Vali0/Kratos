@@ -2,8 +2,41 @@
     .container.col-md-6
         h2 {{ movie.title }}
         p {{ movie.description }}
+        hr
+        .row.well
+            h4  Reviews:
+            ul.list-group
+                li.list-group-item
+                    a(href="#/reviews/id") 1. Best movie ever!
+                li.list-group-item
+                    a(href="#/reviews/id") 2. I kinda like it
+                li.list-group-item
+                    a(href="#/reviews/id") 3. Not that bad
+                li.list-group-item
+                    a(href="#/reviews/id") 4. Almost not booring
+        .row.well.col-md-14
+            form.form-horizontal(name="addReviewForm")
+                h4 Create new Review
+                fieldset
+                    .form-group
+                        label.col-lg-2.control-label(for="title") Title
+                        .col-lg-10
+                            input.form-control(type="text", id="title", required="required", ng-model="review.title", placeholder="Title")
+                    .form-group
+                        label.col-lg-2.control-label(for="review") Text
+                        .col-lg-10
+                            textarea.form-control( id="reviewText", required="required", ng-model="review.text", placeholder="Review Text")
+                    .form-group
+                        label.col-lg-2.control-label(for="rating") Rating
+                        .col-lg-10
+                            input.form-control(type="number", min=1, max=10, id="rating", required="required", ng-model="review.rating")
+                .form-group
+                    .pull-right(style="margin-right: 15px")
+                        button.btn.btn-primary(type="submit", ng-disabled="addReviewForm.$invalid", ng-click="saveReview(review, addReviewForm)") Save
+                        button.btn(style="margin-left: 5px;") Cancel
     .container.col-md-6
         img(ng-src="{{movie.coverPictureUrl}}")
-    div.container
+        br
+        strong Tags:
         a(href="#" ng-repeat="tag in movie.tags")
             span.label.label-info {{ tag }}

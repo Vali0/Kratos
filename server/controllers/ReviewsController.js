@@ -32,6 +32,17 @@ module.exports = {
             res.send({reason: 'You do not have permissions!'})
         }
     },
+    removeReview: function(req, res, next) {
+        if (req.user._id == req.body._id || req.user.roles.indexOf('admin') > -1) {
+            Review.remove({_id: req.body._id}, function() {
+                res.send({success: true});
+                res.end();
+            })
+        }
+        else {
+            res.send({reason: 'You do not have permissions!'})
+        }
+    },
     getAllReviews: function(req, res) {
         filter(Review.find({}), req).exec(function(err, collection) {
             if (err) {

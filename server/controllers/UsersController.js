@@ -40,6 +40,17 @@ module.exports = {
             res.send({reason: 'You do not have permissions!'})
         }
     },
+    removeUser: function(req, res, next) {
+        if (req.user._id == req.body._id || req.user.roles.indexOf('admin') > -1) {
+            User.remove({_id: req.body._id}, function() {
+                res.send({success: true});
+                res.end();
+            })
+        }
+        else {
+            res.send({reason: 'You do not have permissions!'})
+        }
+    },
     getAllUsers: function(req, res) {
         filter(User.find({}), req).exec(function(err, collection) {
             if (err) {

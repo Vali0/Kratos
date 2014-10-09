@@ -2,6 +2,7 @@ var mongoose = require('mongoose'),
     user = require('../models/User'),
     movie = require('../models/Movie'),
     review = require('../models/Review');
+    comment = require('../models/Comment');
 
 module.exports = function(config) {
     mongoose.connect(config.db);

@@ -1,9 +1,14 @@
-app.controller('movieDetailsCtrl', function($scope, $routeParams, cachedMovies) {
-    $scope.movie = cachedMovies.query().$promise.then(function(collection) {
-        collection.forEach(function(movie) {
-            if (movie._id === $routeParams.id) {
-                $scope.movie = movie;
+'use strict';
+
+app.controller('MovieDetailsCtrl', ['$scope', 'notifier','moviesData', '$routeParams',
+    function ($scope, notifier, moviesData, $routeParams) {
+        moviesData.getMovie($routeParams.id).then(function(data) {
+            if (data) {
+                console.log(data);
+                $scope.movie = data;
             }
-        })
-    })
-});
+            else {
+                notifier.error('Error Fetching the trip!');
+            }
+        });
+    }]);

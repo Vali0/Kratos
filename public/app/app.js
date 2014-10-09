@@ -1,4 +1,6 @@
-var app = angular.module('app', ['ngResource', 'ngRoute']).value('toastr', toastr);
+var app = angular.module('app', ['ngResource', 'ngRoute'])
+    .value('toastr', toastr)
+    .constant('baseServiceUrl', 'http://localhost:1234');
 
 app.config(function($routeProvider, $locationProvider) {
 
@@ -22,11 +24,11 @@ app.config(function($routeProvider, $locationProvider) {
         })
         .when('/movies', {
             templateUrl: '/partials/movies/movies-list',
-            controller: 'moviesListCtrl'
+            controller: 'moviesCtrl'
         })
         .when('/movies/:id', {
             templateUrl: '/partials/movies/movie-details',
-            controller: 'movieDetailsCtrl'
+            controller: 'MovieDetailsCtrl'
         })
         .when('/signup', {
             templateUrl: '/partials/account/signup',

@@ -1,4 +1,19 @@
-app.controller('MainCtrl', function($scope, cachedMovies, cachedReviews) {
-    $scope.movies = cachedMovies.query();
-    $scope.reviews = cachedReviews.query();
+app.controller('MainCtrl', function($scope, moviesData, reviewsData, notifier) {
+    moviesData.getMovies().then(function(data) {
+        if (data) {
+            $scope.movies = data;
+        }
+        else {
+            notifier.error('Error Fetching the movies!');
+        }
+    });
+
+    reviewsData.getReviews().then(function(data) {
+        if (data) {
+            $scope.reviews = data;
+        }
+        else {
+            notifier.error('Error Fetching the reviews!');
+        }
+    });
 });

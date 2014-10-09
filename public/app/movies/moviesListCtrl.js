@@ -5,7 +5,7 @@ app.controller('moviesListCtrl', ['$scope', 'notifier','moviesData', '$routePara
                 $scope.movies = data;
             }
             else {
-                notifier.error('Error Fetching the trip!');
+                notifier.error('Error Fetching the movies!');
             }
         });
     }]);

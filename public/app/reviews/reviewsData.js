@@ -5,7 +5,7 @@ app.factory('reviewsData', ['$http', '$q', 'baseServiceUrl',
         var reviewApi = baseServiceUrl + '/api/reviews';
 
         return {
-            getReviews: function () {
+            getAllReviews: function () {
                 var deferred = $q.defer();
                 $http.get(reviewApi)
                     .success(function(data) {

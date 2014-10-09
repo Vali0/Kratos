@@ -14,7 +14,7 @@
         tr
             th Title
             th Published
-        tr(ng-repeat="course in courses | filter: search | orderBy: sort")
+        tr(ng-repeat="movie in movies | filter: search | orderBy: sort")
             td
-                a(href="#/courses/{{ course._id }}") {{ course.title }}
-            td {{ course.published | date }}
+                a(href="#/movies/{{ movie._id }}") {{ movie.title }}
+            td {{ movie.published | date }}

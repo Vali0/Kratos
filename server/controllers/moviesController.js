@@ -1,8 +1,9 @@
+var filter = require('../utilities/query-filter');
 var Movie = require('mongoose').model('Movie');
 
 module.exports = {
     getAllMovies: function(req, res, next) {
-        Movie.find({}).exec(function(err, collection) {
+        filter(Movie.find({}), req).exec(function(err, collection) {
             if (err) {
                 console.log('Movie could not be loaded: ' + err);
             }

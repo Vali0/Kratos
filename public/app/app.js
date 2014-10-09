@@ -24,7 +24,7 @@ app.config(function($routeProvider, $locationProvider) {
         })
         .when('/movies', {
             templateUrl: '/partials/movies/movies-list',
-            controller: 'moviesCtrl'
+            controller: 'moviesListCtrl'
         })
         .when('/movies/:id', {
             templateUrl: '/partials/movies/movie-details',

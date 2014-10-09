@@ -1,10 +1,8 @@
-'use strict';
-
-app.controller('MovieDetailsCtrl', ['$scope', 'notifier','moviesData', '$routeParams',
+app.controller('moviesListCtrl', ['$scope', 'notifier','moviesData', '$routeParams',
     function ($scope, notifier, moviesData, $routeParams) {
-        moviesData.getMovie($routeParams.id).then(function(data) {
+        moviesData.getAllMovies($routeParams.id).then(function(data) {
             if (data) {
-                $scope.movie = data;
+                $scope.movies = data;
             }
             else {
                 notifier.error('Error Fetching the trip!');

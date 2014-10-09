@@ -1,5 +1,9 @@
 .container
-    h2 {{ movie.title }}
-    p {{ movie.published | date }}
-    ul
-        li(ng-repeat="tag in movie.tags") {{ tag }}
+    .container.col-md-6
+        h2 {{ movie.title }}
+        p {{ movie.description }}
+    .container.col-md-6
+        img(ng-src="{{movie.coverPictureUrl}}")
+    div.container
+        a(href="#" ng-repeat="tag in movie.tags")
+            span.label.label-info {{ tag }}

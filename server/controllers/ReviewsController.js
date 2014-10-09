@@ -1,3 +1,4 @@
+var filter = require('../utilities/query-filter');
 var Review = require('mongoose').model('Review');
 
 module.exports = {
@@ -32,7 +33,7 @@ module.exports = {
         }
     },
     getAllReviews: function(req, res) {
-        Review.find({}).exec(function(err, collection) {
+        filter(Review.find({}), req).exec(function(err, collection) {
             if (err) {
                 console.log('Reviews could not be loaded: ' + err);
             }
@@ -53,7 +54,7 @@ module.exports = {
             });
     },
     getMovieReviews: function(req, res) {
-        Review.find({movie: req.params.id}).exec(function(err, collection) {
+        filter(Review.find({movie: req.params.id}), req).exec(function(err, collection) {
             if (err) {
                 console.log('Reviews could not be loaded: ' + err);
             }

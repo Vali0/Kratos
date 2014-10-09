@@ -1,3 +1,4 @@
+var filter = require('../utilities/query-filter');
 var encryption = require('../utilities/encryption');
 var User = require('mongoose').model('User');
 
@@ -40,7 +41,7 @@ module.exports = {
         }
     },
     getAllUsers: function(req, res) {
-        User.find({}).exec(function(err, collection) {
+        filter(User.find({}), req).exec(function(err, collection) {
             if (err) {
                 console.log('Users could not be loaded: ' + err);
             }

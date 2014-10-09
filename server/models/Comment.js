@@ -9,7 +9,7 @@ var commentSchema = mongoose.Schema({
 
 var Comment = mongoose.model('Comment', commentSchema);
 
-module.exports.seedInitialReviews = function() {
+module.exports.seedInitialComments = function() {
     Comment.find({}).exec(function(err, collection) {
         if (err) {
             console.log('Cannot find comments: ' + err);
@@ -24,11 +24,11 @@ module.exports.seedInitialReviews = function() {
                     for (var i = 0; i < 10; i++) {
                         var randomUser = users[Math.floor(Math.random() * users.length)];
                         var randomReview = reviews[Math.floor(Math.random() * reviews.length)];
-                        Review.create({
+                        Comment.create({
                             comment: 'Comment #' + i,
                             rating: Math.round((Math.random() * 10)),
                             author: randomUser,
-                            movie: randomReview
+                            review: randomReview
                         }, function (err, comment) {
                             if (err) {
                                 console.log(err);

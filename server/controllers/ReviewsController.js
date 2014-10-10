@@ -4,11 +4,14 @@ var Review = require('mongoose').model('Review');
 module.exports = {
     createReview: function(req, res, next) {
         var newReviewData = req.body;
+        newReviewData.author = req.user._id;
         Review.create(newReviewData, function(err, review) {
             if (err) {
                 console.log('Failed to submit new review: ' + err);
                 return;
             }
+
+            console.log(req.body);
 
             req.logIn(review, function(err) {
                 if (err) {

@@ -16,6 +16,7 @@ app.controller('MovieDetailsCtrl', ['$scope', 'notifier','moviesData', 'reviewsD
             console.log(addReviewForm);
             if(addReviewForm.$valid){
                 reviewsData.postReview(review);
+                review.movie = $scope.movie._id;
                 notifier.success('Review '+ review.title +' added!');
             }
         };
